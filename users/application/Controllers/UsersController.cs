@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using users.domain;
+using users.domain.repository;
+using users.domain.service;
 
 namespace users.Controllers
 {
@@ -6,11 +9,20 @@ namespace users.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
+        private readonly IRepositoryManager repositoryManager;
+
+        public UsersController(IRepositoryManager repositoryManager)
+        {
+            this.repositoryManager = repositoryManager;
+        }
+
         // GET: api/Users
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var result = this.repositoryManager.User.GetAllUsers(false);
+
+            return Ok(result);
         }
 
         // GET api/Users/5

@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace users.domain.service
 {
-    public interface IDomainOrderService
+    public interface IDomainUserService
     {
-        Guid createUser(User user);
-
-        User? getUser(Guid userId);
+        public IEnumerable<User> GetAllUsers(bool trackChanges);
     }
 }
