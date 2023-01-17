@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using users.domain;
 using users.domain.repository;
-using users.domain.service;
 
 namespace users.Controllers
 {
@@ -9,18 +8,18 @@ namespace users.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly IRepositoryManager repositoryManager;
+        private readonly IUserRepository userRepository;
 
-        public UsersController(IRepositoryManager repositoryManager)
+        public UsersController(IUserRepository repositoryManager)
         {
-            this.repositoryManager = repositoryManager;
+            this.userRepository = repositoryManager;
         }
 
         // GET: api/Users
         [HttpGet]
         public IActionResult Get()
         {
-            var result = this.repositoryManager.User.GetAllUsers(false);
+            var result = this.userRepository.GetAllUsers(false);
 
             return Ok(result);
         }
@@ -34,8 +33,18 @@ namespace users.Controllers
 
         // POST api/Users
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(User user)
         {
+            try
+            {
+                int userId = this.userRepository.AddUser(user);
+                Created(this.Url.ToString() ?? "", new { id = userId });
+            }
+            catch
+            {
+                BadRequest();
+            }
+
         }
 
         // PUT api/Users/5
@@ -46,8 +55,9 @@ namespace users.Controllers
 
         // DELETE api/Users/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(User user)
         {
+
         }
     }
 }

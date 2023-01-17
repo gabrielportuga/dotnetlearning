@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using users.domain.service;
 using users.infrastructure.repository;
 using users.infrastructure.repository.common;
 
@@ -13,6 +8,20 @@ namespace users.domain.repository
         public UserRepository(RepositoryContext repositoryContext)
             : base(repositoryContext)
         {
+        }
+
+        public int AddUser(User user)
+        {
+            try
+            {
+                Create(user);
+                SaveChanges();
+                return user.id;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public IEnumerable<User> GetAllUsers(bool trackChanges) =>

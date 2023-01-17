@@ -6,40 +6,34 @@ namespace users
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfigurationRoot configuration)
         {
-            Configuration = configuration;
+            this.configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        public IConfigurationRoot configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ConfigureSqlContext(Configuration);
-            services.ConfigureRepositoryManager();
             services.AddControllers();
+
+            PostgresConfiguration.ConfigureSqlContext(services, this.configuration);
+            PostgresConfiguration.ConfigureRepositoryManager(services);
+
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(WebApplication app)
         {
-            app.UseRouting();
-
             // Configure the HTTP request pipeline.
-            if (env.IsDevelopment())
+            if (app.Environment.IsDevelopment())
             {
-
+                app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-
-                endpoints.MapControllers();
-            });
+            app.MapControllers();
         }
     }
 }

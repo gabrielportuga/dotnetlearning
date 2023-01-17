@@ -32,10 +32,17 @@ namespace users.infrastructure.repository.common
                     .AsNoTracking() :
                     _context.Set<T>()
                     .Where(t => t.Equals(id));
-        public void Create(T entity) => _context.Set<T>().Add(entity);
+        public void Create(T entity)
+        {
+            this._context.Set<T>().Add(entity);
+        }
 
         public void Update(T entity) => _context.Set<T>().Update(entity);
 
         public void Delete(T entity) => _context.Set<T>().Remove(entity);
+
+        public void SaveChanges() => this._context.SaveChanges();
+
+
     }
 }
