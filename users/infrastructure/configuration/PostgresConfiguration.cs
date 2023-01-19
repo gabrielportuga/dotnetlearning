@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using users.domain.repository;
+using users.domain.service;
 using users.infrastructure.repository;
 
 namespace users.infrastructure.configuration
@@ -10,7 +11,12 @@ namespace users.infrastructure.configuration
             services.AddDbContext<RepositoryContext>(opts =>
                 opts.UseNpgsql(configuration.GetConnectionString("UserDbPostgres"), b => b.MigrationsAssembly("users")));
 
-        public static void ConfigureRepositoryManager(this IServiceCollection services) =>
-           services.AddScoped<IUserRepository, UserRepository>();
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+        {
+            services.AddScoped<IDomainUserService, DomainUserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+        }
+
+
     }
 }

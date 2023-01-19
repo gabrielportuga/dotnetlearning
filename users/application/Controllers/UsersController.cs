@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using users.domain;
 using users.domain.repository;
+using users.domain.service;
 
 namespace users.Controllers
 {
@@ -8,18 +9,18 @@ namespace users.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly IUserRepository userRepository;
+        private readonly IDomainUserService domainUserService;
 
-        public UsersController(IUserRepository repositoryManager)
+        public UsersController(IDomainUserService domainUserService)
         {
-            this.userRepository = repositoryManager;
+            this.domainUserService = domainUserService;
         }
 
         // GET: api/Users
         [HttpGet]
         public IActionResult Get()
         {
-            var result = this.userRepository.GetAllUsers(false);
+            var result = this.domainUserService.GetAllUsers(false);
 
             return Ok(result);
         }
@@ -37,7 +38,7 @@ namespace users.Controllers
         {
             try
             {
-                int userId = this.userRepository.AddUser(user);
+                int userId = this.domainUserService.AddUser(user);
                 Created(this.Url.ToString() ?? "", new { id = userId });
             }
             catch

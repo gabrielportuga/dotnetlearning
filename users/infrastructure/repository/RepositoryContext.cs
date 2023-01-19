@@ -8,6 +8,7 @@ namespace users.infrastructure.repository
         public RepositoryContext(DbContextOptions<RepositoryContext> options)
         : base(options)
         {
+
         }
 
         public DbSet<User> user { get; set; }

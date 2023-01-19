@@ -4,16 +4,31 @@ using users.infrastructure.repository.common;
 
 namespace users.domain.service
 {
-    public class DomainUserService : CommonRepository<RepositoryContext, User>, IDomainUserService
+    public class DomainUserService : IDomainUserService
     {
-        public DomainUserService(RepositoryContext repositoryContext)
-            : base(repositoryContext)
+        private readonly IUserRepository userRepository;
+
+        public DomainUserService(IUserRepository userRepository)
         {
+            this.userRepository = userRepository;
         }
 
-        public IEnumerable<User> GetAllUsers(bool trackChanges) =>
-            FindAll(trackChanges)
-            .OrderBy(c => c.name)
-            .ToList();
+        public int AddUser(User user)
+        {
+            try
+            {
+                return this.userRepository.AddUser(user);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public IEnumerable<User> GetAllUsers(bool trackChanges)
+        {
+            return this.userRepository.GetAllUsers(false);
+        }
     }
 }
