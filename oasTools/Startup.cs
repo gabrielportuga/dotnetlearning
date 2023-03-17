@@ -1,8 +1,8 @@
 
 using Microsoft.AspNetCore.HttpOverrides;
-using users.infrastructure.configuration;
+using oasTools.infrastructure.configuration;
 
-namespace users
+namespace oasTools
 {
     public class Startup
     {
@@ -28,6 +28,8 @@ namespace users
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseAuthorization();
 

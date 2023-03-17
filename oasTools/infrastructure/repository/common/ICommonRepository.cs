@@ -1,7 +1,7 @@
 
 using System.Linq.Expressions;
 
-namespace users.infrastructure.repository.common
+namespace oasTools.infrastructure.repository.common
 {
     public interface ICommonRepository<T>
     {

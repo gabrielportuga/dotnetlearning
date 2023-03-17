@@ -3,15 +3,15 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-# User-specific files
-*.rsuser
+# Dealer-specific files
+*.rsdealer
 *.suo
-*.user
-*.userosscache
+*.dealer
+*.dealerosscache
 *.sln.docstates
 
-# User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
+# Dealer-specific files (MonoDevelop/Xamarin Studio)
+*.dealerprefs
 
 # Mono auto generated files
 mono_crash.*
@@ -132,7 +132,7 @@ $tf/
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
-*.DotSettings.user
+*.DotSettings.dealer
 
 # TeamCity is a build add-in
 _TeamCity*
@@ -272,7 +272,7 @@ ServiceFabricBackup/
 *.rdl.data
 *.bim.layout
 *.bim_*.settings
-*.rptproj.rsuser
+*.rptproj.rsdealer
 *- [Bb]ackup.rdl
 *- [Bb]ackup ([0-9]).rdl
 *- [Bb]ackup ([0-9][0-9]).rdl
@@ -344,7 +344,7 @@ ASALocalRun/
 *.binlog
 
 # NVidia Nsight GPU debugger configuration file
-*.nvuser
+*.nvdealer
 
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
@@ -371,8 +371,8 @@ FodyWeavers.xsd
 
 # globs
 Makefile.in
-*.userprefs
-*.usertasks
+*.dealerprefs
+*.dealertasks
 config.make
 config.status
 aclocal.m4

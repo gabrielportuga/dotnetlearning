@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using users.domain;
+using oasTools.domain;
 
-namespace users.infrastructure.repository
+namespace oasTools.infrastructure.repository
 {
     public class RepositoryContext : DbContext
     {
@@ -11,6 +11,6 @@ namespace users.infrastructure.repository
 
         }
 
-        public DbSet<User> user { get; set; }
+        public DbSet<Dealer> dealer { get; set; }
     }
 }

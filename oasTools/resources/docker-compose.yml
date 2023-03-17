@@ -3,25 +3,25 @@ version: '3'
 services:
   mongo:
     image: mongo
-    container_name: user-mongo-db
+    container_name: dealer-mongo-db
     restart: always
     ports:
       - 27017:27017
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_dealerNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: naovoufalar
-      MONGO_INITDB_DATABASE: userdb
+      MONGO_INITDB_DATABASE: dealerdb
   mongoexpress:
     image: mongo-express
     ports:
-        - "8081:8081"
+      - "8081:8081"
     links:
-        - mongo
-    environment: 
-        - ME_CONFIG_MONGODB_URL=mongodb://mongo:27017
-  user-postgres-database:
+      - mongo
+    environment:
+      - ME_CONFIG_MONGODB_URL=mongodb://mongo:27017
+  dealer-postgres-database:
     image: postgres
-    container_name: user-postgres-db
+    container_name: dealer-postgres-db
     volumes:
       - ./postgres-init.sql:/docker-entrypoint-initdb.d/postgres-init.sql
     environment:
