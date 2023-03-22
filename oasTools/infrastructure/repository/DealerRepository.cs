@@ -5,18 +5,21 @@ namespace oasTools.domain.repository
 {
     public class DealerRepository : CommonRepository<RepositoryContext, Dealer>, IDealerRepository
     {
+        private readonly RepositoryContext repository;
+
         public DealerRepository(RepositoryContext repositoryContext)
             : base(repositoryContext)
         {
+            this.repository = repositoryContext;
         }
 
-        public string AddDealer(Dealer dealer)
+        public int AddDealer(Dealer dealer)
         {
             try
             {
                 Create(dealer);
                 SaveChanges();
-                return dealer.dealer_id;
+                return dealer.id;
             }
             catch (Exception ex)
             {
@@ -24,13 +27,13 @@ namespace oasTools.domain.repository
             }
         }
 
-        public string UpdateDealer(Dealer dealer)
+        public int UpdateDealer(Dealer dealer)
         {
             try
             {
                 Update(dealer);
                 SaveChanges();
-                return dealer.dealer_id;
+                return dealer.id;
             }
             catch (Exception ex)
             {
@@ -38,13 +41,21 @@ namespace oasTools.domain.repository
             }
         }
 
-
-        public IEnumerable<Dealer> GetAllDealers(bool trackChanges) =>
-            FindAll(trackChanges)
+        public IEnumerable<Dealer> GetAllDealers() =>
+            FindAll()
             .OrderBy(c => c.dealer_name)
             .ToList();
 
-        public Dealer? GetDealer(string dealer_id) =>
-            FindByCondition(c => c.dealer_id == dealer_id, false).FirstOrDefault();
+        public Dealer? GetDealer(int dealer_id) =>
+            FindByCondition(c => c.id == dealer_id).FirstOrDefault();
+
+        public IEnumerable<Dealer> GetAllDealers(int vendorId)
+        {
+            return from vendor in this.repository.vendor
+                   join market in this.repository.market on vendor.id equals market.vendor.id
+                   join dealer in this.repository.dealer on market.id equals dealer.market.id
+                   where vendor.id == vendorId
+                   select dealer;
+        }
     }
 }

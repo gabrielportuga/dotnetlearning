@@ -13,8 +13,8 @@ namespace oasTools
         public IConfigurationRoot configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            InMemoryConfiguration.ConfigureSqlContext(services, this.configuration);
-            InMemoryConfiguration.ConfigureRepositoryManager(services);
+            PostgresConfiguration.ConfigureSqlContext(services, this.configuration);
+            PostgresConfiguration.ConfigureRepositoryManager(services);
             services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();

@@ -9,7 +9,7 @@ namespace oasTools.infrastructure.configuration
     {
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
             services.AddDbContext<RepositoryContext>(opts =>
-                opts.UseNpgsql(configuration.GetConnectionString("dealerDbPostgres"), b => b.MigrationsAssembly("dealers")));
+                opts.UseNpgsql(configuration.GetConnectionString("dealerDbPostgres")));
 
         public static void ConfigureRepositoryManager(this IServiceCollection services)
         {

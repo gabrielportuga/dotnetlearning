@@ -2,12 +2,14 @@ namespace oasTools.domain.repository
 {
     public interface IDealerRepository
     {
-        public IEnumerable<Dealer> GetAllDealers(bool trackChanges);
+        public IEnumerable<Dealer> GetAllDealers();
 
-        public Dealer? GetDealer(string email);
+        public IEnumerable<Dealer> GetAllDealers(int vendorId);
 
-        public string AddDealer(Dealer dealer);
+        public Dealer? GetDealer(int dealerId);
 
-        public string UpdateDealer(Dealer dealer);
+        public int AddDealer(Dealer dealer);
+
+        public int UpdateDealer(Dealer dealer);
     }
 }
