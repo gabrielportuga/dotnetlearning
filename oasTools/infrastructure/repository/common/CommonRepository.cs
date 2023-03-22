@@ -9,29 +9,17 @@ namespace oasTools.infrastructure.repository.common
 
         public CommonRepository(TContext context) => this._context = context;
 
-        public IQueryable<T> FindAll(bool trackChanges) =>
-            !trackChanges ?
-                _context.Set<T>()
-                .AsNoTracking() :
-                _context.Set<T>();
+        public IQueryable<T> FindAll() => _context.Set<T>();
 
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression,
-        bool trackChanges) =>
-            !trackChanges ?
-                _context.Set<T>()
-                .Where(expression)
-                .AsNoTracking() :
+        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression) =>
                 _context.Set<T>()
                 .Where(expression);
 
-        public IQueryable<T> FindById(string id,
-            bool trackChanges) =>
-                !trackChanges ?
-                    _context.Set<T>()
-                    .Where(t => t.Equals(id))
-                    .AsNoTracking() :
+
+        public IQueryable<T> FindById(string id) =>
                     _context.Set<T>()
                     .Where(t => t.Equals(id));
+
         public void Create(T entity)
         {
             this._context.Set<T>().Add(entity);
@@ -42,7 +30,6 @@ namespace oasTools.infrastructure.repository.common
         public void Delete(T entity) => _context.Set<T>().Remove(entity);
 
         public void SaveChanges() => this._context.SaveChanges();
-
 
     }
 }

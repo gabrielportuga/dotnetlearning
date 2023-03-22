@@ -13,15 +13,15 @@ namespace oasTools.domain.service
             this.dealerRepository = dealerRepository;
         }
 
-        public string AddDealer(Dealer dealer)
+        public int AddDealer(Dealer dealer)
         {
             try
             {
-                var dealerResponse = this.dealerRepository.GetDealer(dealer.dealer_id);
+                var dealerResponse = this.dealerRepository.GetDealer(dealer.id);
                 if (dealerResponse == null)
                     return this.dealerRepository.AddDealer(dealer);
 
-                return "";
+                return 0;
             }
             catch (Exception ex)
             {
@@ -29,15 +29,15 @@ namespace oasTools.domain.service
             }
         }
 
-        public string UpdateDealer(Dealer dealer)
+        public int UpdateDealer(Dealer dealer)
         {
             try
             {
-                var dealerResponse = this.dealerRepository.GetDealer(dealer.dealer_id);
+                var dealerResponse = this.dealerRepository.GetDealer(dealer.id);
                 if (dealerResponse == null)
                     return this.dealerRepository.UpdateDealer(dealer);
 
-                return "";
+                return 0;
             }
             catch (Exception ex)
             {
@@ -45,9 +45,14 @@ namespace oasTools.domain.service
             }
         }
 
-        public IEnumerable<Dealer> GetAllDealers(bool trackChanges)
+        public IEnumerable<Dealer> GetAllDealers()
         {
-            return this.dealerRepository.GetAllDealers(false);
+            return this.dealerRepository.GetAllDealers();
+        }
+
+        public IEnumerable<Dealer> GetAllDealers(int vendorId)
+        {
+            return this.dealerRepository.GetAllDealers(vendorId);
         }
     }
 }

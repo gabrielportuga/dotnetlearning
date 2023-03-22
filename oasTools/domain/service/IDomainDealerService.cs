@@ -7,10 +7,12 @@ namespace oasTools.domain.service
 {
     public interface IDomainDealerService
     {
-        public IEnumerable<Dealer> GetAllDealers(bool trackChanges);
+        public IEnumerable<Dealer> GetAllDealers();
 
-        public string AddDealer(Dealer dealer);
+        public IEnumerable<Dealer> GetAllDealers(int vendorId);
 
-        public string UpdateDealer(Dealer dealer);
+        public int AddDealer(Dealer dealer);
+
+        public int UpdateDealer(Dealer dealer);
     }
 }
