@@ -7,25 +7,25 @@ namespace oasTools.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class BrandController : ControllerBase
+    public class VendorController : ControllerBase
     {
-        private readonly IBrandService brandService;
+        private readonly IVendorService vendorService;
 
-        public BrandController(IBrandService brandService)
+        public VendorController(IVendorService vendorService)
         {
-            this.brandService = brandService;
+            this.vendorService = vendorService;
         }
 
-        // GET: api/Brands
+        // GET: api/Vendors
         [HttpGet]
         public IActionResult Get()
         {
-            var result = this.brandService.GetAllBrands();
+            var result = this.vendorService.GetAllVendors();
 
             return Ok(result);
         }
 
-        // GET api/Brands/5
+        // GET api/Vendors/5
         [HttpGet("{id}")]
         public string Get(string id)
         {

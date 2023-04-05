@@ -4,11 +4,11 @@ using oasTools.infrastructure.repository.common;
 
 namespace oasTools.domain.service
 {
-    public class DomainDealerService : IDomainDealerService
+    public class DealerService : IDealerService
     {
         private readonly IDealerRepository dealerRepository;
 
-        public DomainDealerService(IDealerRepository dealerRepository)
+        public DealerService(IDealerRepository dealerRepository)
         {
             this.dealerRepository = dealerRepository;
         }

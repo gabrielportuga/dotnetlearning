@@ -1,6 +1,6 @@
 namespace oasTools.domain.repository
 {
-    public interface ICountriesRepository
+    public interface ICountryRepository
     {
         public IEnumerable<Country> GetAllCountries();
     }

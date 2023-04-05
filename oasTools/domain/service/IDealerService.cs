@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace oasTools.domain.service
 {
-    public interface IDomainDealerService
+    public interface IDealerService
     {
         public IEnumerable<Dealer> GetAllDealers();
 

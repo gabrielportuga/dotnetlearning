@@ -13,7 +13,5 @@ namespace oasTools.domain
 
         [JsonProperty(PropertyName = "brand_name")]
         public string brand_name { get; set; } = "";
-
-        public List<DealerConfiguration> dealerConfigurations { get; set; } = new List<DealerConfiguration>();
     }
 }

@@ -9,18 +9,18 @@ namespace oasTools.Controllers
     [Route("api/[controller]")]
     public class DealerController : ControllerBase
     {
-        private readonly IDomainDealerService domainDealerService;
+        private readonly IDealerService DealerService;
 
-        public DealerController(IDomainDealerService domainDealerService)
+        public DealerController(IDealerService DealerService)
         {
-            this.domainDealerService = domainDealerService;
+            this.DealerService = DealerService;
         }
 
         // GET: api/dealers
         [HttpGet]
         public IActionResult Get()
         {
-            var result = this.domainDealerService.GetAllDealers();
+            var result = this.DealerService.GetAllDealers();
 
             return Ok(result);
         }
@@ -29,7 +29,7 @@ namespace oasTools.Controllers
         [HttpGet("vendor/{id}")]
         public IActionResult GetByVendor(int id)
         {
-            var result = this.domainDealerService.GetAllDealers(id);
+            var result = this.DealerService.GetAllDealers(id);
 
             return Ok(result);
         }
@@ -47,7 +47,7 @@ namespace oasTools.Controllers
         {
             try
             {
-                int dealerId = this.domainDealerService.AddDealer(dealer);
+                int dealerId = this.DealerService.AddDealer(dealer);
 
                 if (dealerId != 0)
                     Created(this.Url.ToString() ?? "", new { id = dealerId });
@@ -67,7 +67,7 @@ namespace oasTools.Controllers
         {
             try
             {
-                this.domainDealerService.UpdateDealer(dealer);
+                this.DealerService.UpdateDealer(dealer);
                 Ok();
             }
             catch

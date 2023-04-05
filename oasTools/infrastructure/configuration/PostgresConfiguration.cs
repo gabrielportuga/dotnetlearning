@@ -11,12 +11,5 @@ namespace oasTools.infrastructure.configuration
             services.AddDbContext<RepositoryContext>(opts =>
                 opts.UseNpgsql(configuration.GetConnectionString("dealerDbPostgres")));
 
-        public static void ConfigureRepositoryManager(this IServiceCollection services)
-        {
-            services.AddScoped<IDomainDealerService, DomainDealerService>();
-            services.AddScoped<IDealerRepository, DealerRepository>();
-        }
-
-
     }
 }
