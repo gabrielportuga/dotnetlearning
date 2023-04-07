@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using oasTools.domain;
-using oasTools.domain.repository;
-using oasTools.domain.service;
-using onboarding;
+using OasTools.domain;
+using OasTools.domain.repository;
+using OasTools.domain.service;
+using Onboarding;
 
-namespace oasTools.Controllers
+namespace OasTools.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

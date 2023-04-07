@@ -1,8 +1,8 @@
-using oasTools.domain.repository;
-using oasTools.infrastructure.repository;
-using oasTools.infrastructure.repository.common;
+using OasTools.domain.repository;
+using OasTools.infrastructure.repository;
+using OasTools.infrastructure.repository.common;
 
-namespace oasTools.domain.service
+namespace OasTools.domain.service
 {
     public class DealerService : IDealerService
     {

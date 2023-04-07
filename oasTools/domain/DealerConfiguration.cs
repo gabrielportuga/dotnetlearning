@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace oasTools.domain
+namespace OasTools.domain
 {
     public class DealerConfiguration
     {

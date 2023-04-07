@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace oasTools.infrastructure.repository.common
+namespace OasTools.infrastructure.repository.common
 {
     public abstract class CommonRepository<TContext, T> : ICommonRepository<T> where T : class where TContext : DbContext
     {

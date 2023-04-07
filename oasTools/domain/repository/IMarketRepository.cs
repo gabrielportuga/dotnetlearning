@@ -1,4 +1,4 @@
-namespace oasTools.domain.repository
+namespace OasTools.domain.repository
 {
     public interface IMarketRepository
     {

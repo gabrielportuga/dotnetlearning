@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using oasTools.domain.repository;
-using oasTools.domain.service;
-using oasTools.infrastructure.repository;
+using OasTools.domain.repository;
+using OasTools.domain.service;
+using OasTools.infrastructure.repository;
 
-namespace oasTools.infrastructure.configuration
+namespace OasTools.infrastructure.configuration
 {
     public static class PostgresConfiguration
     {

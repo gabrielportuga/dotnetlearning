@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/oasTools/bin/Debug/net6.0/oasTools.dll",
+            "program": "${workspaceFolder}/OasTools/bin/Debug/net6.0/OasTools.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/oasTools",
+            "cwd": "${workspaceFolder}/OasTools",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",

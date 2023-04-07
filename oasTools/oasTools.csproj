@@ -17,6 +17,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\onboarding\onboarding.csproj" />
+    <ProjectReference Include="..\Onboarding\Onboarding.csproj" />
+    <ProjectReference Include="..\DealerCosmosDB\DealerCosmosDB.csproj" />
   </ItemGroup>
 </Project>

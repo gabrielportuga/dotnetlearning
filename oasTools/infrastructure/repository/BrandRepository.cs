@@ -1,7 +1,7 @@
-using oasTools.infrastructure.repository;
-using oasTools.infrastructure.repository.common;
+using OasTools.infrastructure.repository;
+using OasTools.infrastructure.repository.common;
 
-namespace oasTools.domain.repository
+namespace OasTools.domain.repository
 {
     public class BrandRepository : CommonRepository<RepositoryContext, Brand>, IBrandRepository
     {

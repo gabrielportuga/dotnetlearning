@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using oasTools.domain;
+using OasTools.domain;
 
-namespace oasTools.infrastructure.repository
+namespace OasTools.infrastructure.repository
 {
     public class RepositoryContext : DbContext
     {

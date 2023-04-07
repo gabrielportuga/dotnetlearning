@@ -1,8 +1,8 @@
 
 using Microsoft.AspNetCore.HttpOverrides;
-using oasTools.infrastructure.configuration;
+using OasTools.infrastructure.configuration;
 
-namespace oasTools
+namespace OasTools
 {
     public class Startup
     {

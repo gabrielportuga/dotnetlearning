@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 
-namespace onboarding;
+namespace Onboarding;
 public class SmokeTest
 {
     public async Task<String> GetAuthToken()

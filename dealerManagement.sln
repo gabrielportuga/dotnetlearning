@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dealers", "dealers\dealers.csproj", "{F112B006-C532-49EC-B908-D66C5CC5CD57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onboarding", "Onboarding\Onboarding.csproj", "{D5D5372B-E41D-46B9-A0EE-7A15C6F7E42C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "onboarding", "onboarding\onboarding.csproj", "{D5D5372B-E41D-46B9-A0EE-7A15C6F7E42C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DealerCosmosDB", "DealerCosmosDB\DealerCosmosDB.csproj", "{1975F01D-1741-4D58-8B13-D23ABC70DB7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OasTools", "OasTools\OasTools.csproj", "{F10F8EF9-DD49-4171-808B-FB64C9E12DB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +18,17 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F112B006-C532-49EC-B908-D66C5CC5CD57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F112B006-C532-49EC-B908-D66C5CC5CD57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F112B006-C532-49EC-B908-D66C5CC5CD57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F112B006-C532-49EC-B908-D66C5CC5CD57}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5D5372B-E41D-46B9-A0EE-7A15C6F7E42C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5D5372B-E41D-46B9-A0EE-7A15C6F7E42C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5D5372B-E41D-46B9-A0EE-7A15C6F7E42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5D5372B-E41D-46B9-A0EE-7A15C6F7E42C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1975F01D-1741-4D58-8B13-D23ABC70DB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1975F01D-1741-4D58-8B13-D23ABC70DB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1975F01D-1741-4D58-8B13-D23ABC70DB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1975F01D-1741-4D58-8B13-D23ABC70DB7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10F8EF9-DD49-4171-808B-FB64C9E12DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10F8EF9-DD49-4171-808B-FB64C9E12DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10F8EF9-DD49-4171-808B-FB64C9E12DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10F8EF9-DD49-4171-808B-FB64C9E12DB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
